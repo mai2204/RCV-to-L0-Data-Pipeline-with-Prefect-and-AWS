@@ -10,7 +10,7 @@ def deploy():
 
  # 2. Define the remote source (The "Pull" step)
     source = GitRepository(
-        url="https://github.com/mai2204/RCV-to-L0-Data-Pipeline-with-Prefect-and-AWS",
+        url="https://github.com/mai2204/RCV-to-L0-Data-Pipeline-with-Prefect-and-AWS.git",
         branch="main",
         credentials=github_creds
     )
@@ -19,7 +19,7 @@ def deploy():
  # .from_source() replaces the 'pull' section of your YAML
     my_flow = flow.from_source(
         source=source,
-        entrypoint="dag/L1/ecom/ecom_flow.py:ecom_flow"
+        entrypoint="dags/L1/ecom/ecom_flow.py:ecom_flow"
     )
 
  # 4. Ship it to Prefect Cloud (The 'deployments' section)
@@ -27,7 +27,7 @@ def deploy():
         name="ecom-deployment",
         work_pool_name="Serverless",
         job_variables={
-            "pip_packages": "-r requirements.txt" 
+            "pip_packages": ["boto3"] 
         }
     )
 
