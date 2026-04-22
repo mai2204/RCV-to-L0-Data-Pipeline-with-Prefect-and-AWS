@@ -15,7 +15,7 @@ from utils.s3_helper import list_files, move_file
 def fetch_files():
     bucket = CONFIG["crm"]
 
-    files = list_files(bucket)   # ✔ phải có trước
+    files = list_files(bucket)   
 
     print("FILES:", files)
 

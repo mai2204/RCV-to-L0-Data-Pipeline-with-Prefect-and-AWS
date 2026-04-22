@@ -1,5 +1,9 @@
 CONFIG = {
-    "crm": "dev-crm-prefect-rcv-aws-bucket",
-    "ecom": "dev-ecom-prefect-rcv-aws-bucket",
-    "target_bucket": "dev-prefect-l0-aws-bucket"
+    "ecom": {
+        "source_bucket": "dev-ecom-rcv-bucket"
+    },
+    "crm": {
+        "source_bucket": "dev-crm-rcv-bucket"
+    },
+    "target_bucket": "dev-l0-bucket"
 }
